@@ -1,0 +1,96 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f5f9ff;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  /*profile page*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+  flex-grow: 1;
+  justify-content: center;
+  width: 100%; /* Ensure the menu container takes the full width */
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center; /* Align items vertically centered */
+  padding: 15px 20px;
+  color: #bbb;
+  text-decoration: none;
+  font-size: 18px;
+  text-align: left;
+  margin-bottom: 10px;
+  width: calc(100% - 40px); /* Add margin on the right */
+}
+
+.sidebar a svg {
+  align-items: center;
+  margin-right: 20px; /* Space between the icon and text */
+  fill: #bbb; /* Default fill color */
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background-color: #418cfd;
+  color: #fefefe;
+  border-radius: 15px;
+}
+
+.sidebar a.active svg path,
+.sidebar a:hover svg path {
+  fill: #fefefe;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f5f9ff;
+  position: relative;
+  overflow-y: auto;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.profile-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

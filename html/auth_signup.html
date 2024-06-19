@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="../css/auth.css" />
+  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const roleSelect = document.getElementById("role");
+      const parentForm = document.getElementById("parent-form");
+      const doctorForm = document.getElementById("doctor-form");
+      const signupButton = document.getElementById("signup-button");
+
+      roleSelect.addEventListener("change", function () {
+        parentForm.style.display = "none";
+        doctorForm.style.display = "none";
+
+        if (roleSelect.value === "Orang Tua") {
+          parentForm.style.display = "block";
+          doctorForm.style.display = "none";
+        } else if (roleSelect.value === "Dokter") {
+          doctorForm.style.display = "block";
+          parentForm.style.display = "none";
+        }
+      });
+    });
+  </script>
+  <body>
+    <div class="auth-container">
+      <div class="welcome-section">
+        <h1>Selamat Datang!</h1>
+        <p class="welcome-message">
+          Yuk, bergabung bersama kami untuk hidup sehat!
+        </p>
+      </div>
+      <div class="auth-section">
+        <h1>Daftar</h1>
+        <form id="signup-form" action="../php/auth_signup.php" method="post">
+          <label for="role">Role</label>
+          <select id="role" name="role" onchange="showForm()">
+            <option value="">Pilih Role</option>
+            <option value="Orang Tua">Orang Tua</option>
+            <option value="Dokter">Dokter</option>
+          </select>
+
+          <div id="parent-form" class="role-specific" style="display: none">
+            <label for="nama_ayah">Nama Ayah</label>
+            <input
+              type="text"
+              id="nama_ayah"
+              name="nama_ayah"
+              placeholder="Masukkan nama ayah"
+            />
+            <label for="nama_ibu">Nama Ibu</label>
+            <input
+              type="text"
+              id="nama_ibu"
+              name="nama_ibu"
+              placeholder="Masukkan nama ibu"
+            />
+            <label for="alamat">Alamat</label>
+            <input
+              type="text"
+              id="alamat"
+              name="alamat"
+              placeholder="Masukkan alamat"
+            />
+            <label for="nomor_telp_parent">Nomor Telepon</label>
+            <input
+              type="text"
+              id="nomor_telp_parent"
+              name="nomor_telp_parent"
+              placeholder="Masukkan nomor telepon"
+            />
+          </div>
+
+          <div id="doctor-form" class="role-specific" style="display: none">
+            <label for="nama_dokter">Nama Dokter</label>
+            <input
+              type="text"
+              id="nama_dokter"
+              name="nama_dokter"
+              placeholder="Masukkan nama dokter"
+            />
+            <label for="spesialis">Spesialis</label>
+            <input
+              type="text"
+              id="spesialis"
+              name="spesialis"
+              placeholder="Masukkan spesialisasi"
+            />
+            <label for="nomor_telp_doctor">Nomor Telepon</label>
+            <input
+              type="text"
+              id="nomor_telp_doctor"
+              name="nomor_telp_doctor"
+              placeholder="Masukkan nomor telepon"
+            />
+          </div>
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Masukkan email"
+          />
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Masukkan password"
+          />
+          <button type="submit" id="signup-button">Daftar</button>
+        </form>
+        <p class="auth-link">
+          Sudah Punya Akun? <a href="auth_login.html">Masuk</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
